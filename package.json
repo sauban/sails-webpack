@@ -16,6 +16,9 @@
     "marlinspike": "^0.12.15",
     "webpack": "^1.9.6",
   },
+  "scripts": {
+    "prepublish": "gulp"
+  },
   "main": "dist/api/hooks/webpack/index.js",
   "repository": {
     "type": "git",
