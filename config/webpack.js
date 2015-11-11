@@ -3,8 +3,6 @@ var webpack = require('webpack');
 
 module.exports.webpack = {
 
-  watch: process.env.NODE_ENV == 'development',
-
   // default webpack config
   options: {
     devtool: 'eval',
