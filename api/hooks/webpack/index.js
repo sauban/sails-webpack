@@ -14,17 +14,20 @@ class Webpack extends Marlinspike {
     let config = this.sails.config
 
     if (config.webpack.watch) {
-      sails.log.info('sails-webpack: watching...')
+      sails.log.debug('sails-webpack: watching...')
       this.compiler.watch(this.sails.config.webpack.watchConfig, this.afterWatch)
       next()
     }
     else {
+      sails.log.info('sails-webpack: running...')
       this.compiler.run(next)
     }
   }
 
   afterWatch (err, stats) {
-
+    if (err) sails.log.warn('sails-webpack:', err)
+    sails.log.debug('sails-webpack: done.')
+    sails.log.silly('sails-webpack: stats:', stats)
   }
 }
 
