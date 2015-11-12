@@ -15,5 +15,6 @@ deploy:
   on:
     tags: true
     repo: balderdash-projects/sails-webpack
+    all_branches: true
 
 sudo: false
