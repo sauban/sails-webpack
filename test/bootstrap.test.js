@@ -7,7 +7,13 @@ before(function(done) {
   this.timeout(30000);
 
   var config = {
-    appPath: path.resolve(__dirname, '..')
+    appPath: path.resolve(__dirname, '..'),
+    hooks: {
+      grunt: false
+    },
+    log: {
+      level: 'error'
+    }
   }
 
   Sails.lift(config, function(err, server) {
