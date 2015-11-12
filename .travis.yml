@@ -1,0 +1,19 @@
+language: node_js
+node_js:
+  - '0.12'
+  - '4.0'
+  - '5.0'
+
+notifications:
+  email: false
+
+deploy:
+  provider: npm
+  email: tjwebb@balderdash.io
+  api_key:
+    secure: GQ0C8csx8kAVp+fFl7MRzEgBSTGNo6zSPuMcFZd1X82ikw9Id9/+gXEV94RuPMLrgXKpgc/9qZq3H8uhonC1MVwDB3KXVfuyaYszQQM13v0Mye6PhGkefWShQnIZSSX9wnxBod/8T5BrODcI4nJEwJyvltF/GXgAdgi73HC6vsqpFaJKiDWCFVPWh5/jil3crXFfjOD/cZzXXDlxkGsUhOxF1YrJheVbqx+9ickpSS1LZ2t4tsx1UmxfBIrL3jQEdTRQj0jHFZJAyryxh1f28hJM1rBgNUy0RX2rZAucM0nTFS4CUwvyWbCPQ3Mk05mcwNXIYHYB+qlIA1cDGYGHFjRRQwV5IBXTUMrZnf75YIoBYiD+HCzxwyB18/v1a8gcvv4hi7AvFeg/z7OaQLrsj218VETlP+AORwwLl/bnuK7sJOoAeeCUX/0SgGCbL98KVK1k6sLaQE6PS4ljHNCfeNGaXHKkEbuMnWzi5rxO8wc7Of8WGn5SH9HnhLrfQ3LnLm0Ll+pKI4buGZ4sZF6gZ4P/NYkOQY25CXOFm3iiOnWyhZfkD54FAxnXzm1fp5MHYrl+39nRoSMfRufDD+SOl2VVh17dNRjRURrv6YKC1v6SccXV9WDORvKJk7OfluAC/jgEuderhHMsDW+3+82rihYRu2aCBeabMeeEEzCuO8Y=
+  on:
+    tags: true
+    repo: balderdash-projects/sails-webpack
+
+sudo: false
