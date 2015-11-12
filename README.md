@@ -5,7 +5,7 @@
 [![Build status][travis-image]][travis-url]
 [![Dependency Status][daviddm-image]][daviddm-url]
 
-Webpack asset pipeline hook for React and Sails.
+Webpack asset pipeline hook for Sails.
 
 ## 1. Install
 ```sh
