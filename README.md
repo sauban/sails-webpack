@@ -78,7 +78,7 @@ MIT
 [sails-url]: https://sailsjs.org
 [npm-image]: https://img.shields.io/npm/v/sails-webpack.svg?style=flat-square
 [npm-url]: https://npmjs.org/package/sails-webpack
-[travis-image]: https://img.shields.io/travis/tjwebb/sails-webpack.svg?style=flat-square
-[travis-url]: https://travis-ci.org/tjwebb/sails-webpack
-[daviddm-image]: http://img.shields.io/david/tjwebb/sails-webpack.svg?style=flat-square
-[daviddm-url]: https://david-dm.org/tjwebb/sails-webpack
+[travis-image]: https://img.shields.io/travis/balderdash-projects/sails-webpack.svg?style=flat-square
+[travis-url]: https://travis-ci.org/balderdash-projects/sails-webpack
+[daviddm-image]: http://img.shields.io/david/balderdash-projects/sails-webpack.svg?style=flat-square
+[daviddm-url]: https://david-dm.org/balderdash-projects/sails-webpack
