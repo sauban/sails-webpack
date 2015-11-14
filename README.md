@@ -26,7 +26,7 @@ $ npm install sails-webpack --save
 
 ### b. Set your environment.
 
-By default, Sails ([and express](http://stackoverflow.com/a/16979503/291180) sets `NODE_ENV=development`.
+By default, Sails ([and express](http://stackoverflow.com/a/16979503/291180)) sets `NODE_ENV=development`.
 In this setting, webpack will watch for changes in the directories you specify in your `config/webpack.js`.
 
 
@@ -76,9 +76,6 @@ module.exports.webpack = {
 ```sh
 $ sails lift
 ```
-
-## A. Behavior
-
 
 ## License
 MIT
