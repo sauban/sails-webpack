@@ -63,7 +63,7 @@ module.exports.webpack = {
     module: {
       loaders: [
         // requires "npm install --save-dev babel-loader"
-        { test: /\.js$/, loaders: ['babel-loader?stage=0'], include: path.resolve(__dirname, 'src') },
+        { test: /\.js$/, loaders: ['babel-loader?stage=0'] },
         { test: /\.css$/, loader: 'style!css' }
       ]
     }
