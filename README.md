@@ -13,7 +13,7 @@ $ npm install sails-webpack --save
 
 ## 2. Configure
 
-### 2a. Disable the built-in Grunt hook
+### a. Disable the built-in Grunt hook
 
 ```js
 // .sailsrc
@@ -24,7 +24,21 @@ $ npm install sails-webpack --save
 }
 ```
 
-### 2b. Configure Webpack
+### b. Set your environment.
+
+By default, Sails ([and express](http://stackoverflow.com/a/16979503/291180) sets `NODE_ENV=development`.
+In this setting, webpack will watch for changes in the directories you specify in your `config/webpack.js`.
+
+
+| `NODE_ENV` | webpack mode | description |
+|:---|:---|:---|
+| `development` | [`webpack.watch()`](https://webpack.github.io/docs/configuration.html#watch) | Rebuilds on file changes during runtime |
+| `staging` or `production` | `webpack.run()` | Build bundle once on load. |
+
+### c. Configure Webpack
+
+This hook uses standard [Webpack Configuration](https://webpack.github.io/docs/configuration.html).
+Below is an example of using webpack to compile a [React.js](https://facebook.github.io/react/) application located in `assets/js/`.
 
 ```js
 // config/webpack.js
@@ -48,6 +62,7 @@ module.exports.webpack = {
     ],
     module: {
       loaders: [
+        // requires "npm install --save-dev babel-loader"
         { test: /\.js$/, loaders: ['babel-loader?stage=0'], include: path.resolve(__dirname, 'src') },
         { test: /\.css$/, loader: 'style!css' }
       ]
@@ -61,6 +76,9 @@ module.exports.webpack = {
 ```sh
 $ sails lift
 ```
+
+## A. Behavior
+
 
 ## License
 MIT
