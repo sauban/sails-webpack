@@ -10,9 +10,8 @@ class Webpack extends Marlinspike {
     let config = this.sails.config
 
     if (!config.webpack.options) {
-      sails.log.error('sails-webpack: no Webpack "options" are defined.')
-      sails.log.error('sails-webpack: Please configure config/webpack.js')
-      return sails.lower();
+      sails.log.warn('sails-webpack: no Webpack "options" are defined.')
+      sails.log.warn('sails-webpack: Please configure config/webpack.js')
     }
 
     this.compiler = webpack(this.sails.config.webpack.options || { })
@@ -21,7 +20,7 @@ class Webpack extends Marlinspike {
   initialize (next) {
     let config = this.sails.config
 
-    if (config.webpack.watch) {
+    if (process.env.NODE_ENV == 'development') {
       sails.log.debug('sails-webpack: watching...')
       this.compiler.watch(this.sails.config.webpack.watchOptions || { }, this.afterWatch)
       next()
