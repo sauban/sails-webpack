@@ -7,7 +7,7 @@ class Webpack extends Marlinspike {
   }
 
   configure () {
-    this.compiler = webpack(this.sails.config.webpack.options)
+    this.compiler = webpack(this.sails.config.webpack.options || { })
   }
 
   initialize (next) {
@@ -15,7 +15,7 @@ class Webpack extends Marlinspike {
 
     if (config.webpack.watch) {
       sails.log.debug('sails-webpack: watching...')
-      this.compiler.watch(this.sails.config.webpack.watchConfig, this.afterWatch)
+      this.compiler.watch(this.sails.config.webpack.watchOptions || { }, this.afterWatch)
       next()
     }
     else {

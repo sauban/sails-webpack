@@ -67,6 +67,11 @@ module.exports.webpack = {
         { test: /\.css$/, loader: 'style!css' }
       ]
     }
+  },
+
+  // docs: https://webpack.github.io/docs/node.js-api.html#compiler
+  watchOptions: {
+    aggregateTimeout: 300
   }
 };
 ```
@@ -76,9 +81,6 @@ module.exports.webpack = {
 ```sh
 $ sails lift
 ```
-
-## A. Behavior
-
 
 ## License
 MIT
