@@ -1,5 +1,6 @@
 import Marlinspike from 'marlinspike'
 import webpack from 'webpack'
+import _ from 'lodash'
 
 class Webpack extends Marlinspike {
   constructor (sails) {
@@ -14,15 +15,20 @@ class Webpack extends Marlinspike {
       sails.log.warn('sails-webpack: Please configure config/webpack.js')
     }
 
-    this.compiler = webpack(this.sails.config.webpack.options || { })
+    this.compiler = webpack(_.extend({ }, this.sails.config.webpack.options), function (err, stats) {
+      if (err) throw err;
+
+      sails.log.info('sails-webpack: compiler loaded.')
+      sails.log.silly('sails-webpack: ', stats)
+    })
   }
 
   initialize (next) {
     let config = this.sails.config
 
     if (process.env.NODE_ENV == 'development') {
-      sails.log.debug('sails-webpack: watching...')
-      this.compiler.watch(this.sails.config.webpack.watchOptions || { }, this.afterWatch)
+      sails.log.info('sails-webpack: watching...')
+      this.compiler.watch(_.extend({ }, this.sails.config.webpack.watchOptions), this.afterWatch)
       next()
     }
     else {
@@ -33,7 +39,8 @@ class Webpack extends Marlinspike {
 
   afterWatch (err, stats) {
     if (err) sails.log.warn('sails-webpack:', err)
-    sails.log.debug('sails-webpack: done.')
+
+    sails.log.info('sails-webpack: done.')
     sails.log.silly('sails-webpack: stats:', stats)
   }
 }

@@ -13,7 +13,7 @@
   ],
   "dependencies": {
     "lodash": "^3.10.1",
-    "marlinspike": "^0.12.15",
+    "marlinspike": "^1.0",
     "webpack": "^1.9.6"
   },
   "scripts": {
