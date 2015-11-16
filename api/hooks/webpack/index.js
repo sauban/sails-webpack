@@ -28,20 +28,34 @@ class Webpack extends Marlinspike {
 
     if (process.env.NODE_ENV == 'development') {
       sails.log.info('sails-webpack: watching...')
-      this.compiler.watch(_.extend({ }, this.sails.config.webpack.watchOptions), this.afterWatch)
+      this.compiler.watch(_.extend({ }, this.sails.config.webpack.watchOptions), this.afterBuild)
       next()
     }
     else {
       sails.log.info('sails-webpack: running...')
-      this.compiler.run(next)
+      this.compiler.run((err, stats) => {
+        this.afterBuild(err, stats)
+        next()
+      })
     }
   }
 
-  afterWatch (err, stats) {
-    if (err) sails.log.warn('sails-webpack:', err)
+  afterBuild (err, rawStats) {
+    if (err) sails.log.error('sails-webpack: FATAL ERROR', err)
 
-    sails.log.info('sails-webpack: done.')
-    sails.log.silly('sails-webpack: stats:', stats)
+     let stats = rawStats.toJson()
+
+     if (stats.errors.length > 0) {
+       sails.log.warn('sails-webpack:', stats.errors)
+     }
+     if (stats.warnings.length > 0) {
+       sails.log.info('sails-webpack:', stats.warnings)
+     }
+
+    sails.log.debug(rawStats.toString({
+      colors: true,
+      progress: true
+    })
   }
 }
 
