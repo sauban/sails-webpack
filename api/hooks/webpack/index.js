@@ -25,19 +25,18 @@ class Webpack extends Marlinspike {
 
   initialize (next) {
     let config = this.sails.config
+    next()
 
-    if (process.env.NODE_ENV == 'development') {
-      sails.log.info('sails-webpack: watching...')
-      this.compiler.watch(_.extend({ }, this.sails.config.webpack.watchOptions), this.afterBuild)
-      next()
-    }
-    else {
-      sails.log.info('sails-webpack: running...')
-      this.compiler.run((err, stats) => {
-        this.afterBuild(err, stats)
-        next()
-      })
-    }
+    sails.after('lifted', () => {
+      if (process.env.NODE_ENV == 'development') {
+        sails.log.info('sails-webpack: watching...')
+        this.compiler.watch(_.extend({ }, this.sails.config.webpack.watchOptions), this.afterBuild)
+      }
+      else {
+        sails.log.info('sails-webpack: running...')
+        this.compiler.run(this.afterBuild)
+      }
+    })
   }
 
   afterBuild (err, rawStats) {
