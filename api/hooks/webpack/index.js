@@ -14,13 +14,6 @@ class Webpack extends Marlinspike {
       sails.log.warn('sails-webpack: no Webpack "options" are defined.')
       sails.log.warn('sails-webpack: Please configure config/webpack.js')
     }
-
-    this.compiler = webpack(_.extend({ }, this.sails.config.webpack.options), function (err, stats) {
-      if (err) throw err;
-
-      sails.log.info('sails-webpack: compiler loaded.')
-      sails.log.silly('sails-webpack: ', stats.toString())
-    })
   }
 
   initialize (next) {
@@ -28,14 +21,21 @@ class Webpack extends Marlinspike {
     next()
 
     sails.after('lifted', () => {
-      if (process.env.NODE_ENV == 'development') {
-        sails.log.info('sails-webpack: watching...')
-        this.compiler.watch(_.extend({ }, this.sails.config.webpack.watchOptions), this.afterBuild)
-      }
-      else {
-        sails.log.info('sails-webpack: running...')
-        this.compiler.run(this.afterBuild)
-      }
+      this.compiler = webpack(_.extend({ }, this.sails.config.webpack.options), (err, stats) => {
+        if (err) throw err;
+
+        sails.log.info('sails-webpack: compiler loaded.')
+        sails.log.silly('sails-webpack: ', stats.toString())
+
+        if (process.env.NODE_ENV == 'development') {
+          sails.log.info('sails-webpack: watching...')
+          this.compiler.watch(_.extend({ }, this.sails.config.webpack.watchOptions), this.afterBuild)
+        }
+        else {
+          sails.log.info('sails-webpack: running...')
+          this.compiler.run(this.afterBuild)
+        }
+      })
     })
   }
 
