@@ -44,6 +44,7 @@ Below is an example of using webpack to compile a [React.js](https://facebook.gi
 // config/webpack.js
 
 var webpack = require('webpack');
+var path = require('path');
 
 // compile js assets into a single bundle file
 module.exports.webpack = {
@@ -53,7 +54,7 @@ module.exports.webpack = {
       './assets/js',
     ],
     output: {
-      path: path.resolve(__dirname, '.tmp/public/js'),
+      path: path.resolve(__dirname, '../.tmp/public/js'),
       filename: 'bundle.js'
     },
     plugins: [
@@ -76,7 +77,14 @@ module.exports.webpack = {
 };
 ```
 
-## 3. Lift!
+## 3. Update your Layout
+
+```html
+<!-- views/layout.ejs -->
+<script src="/js/bundle.js"></script>
+```
+
+## 4. Lift!
 
 ```sh
 $ sails lift
