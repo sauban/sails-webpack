@@ -1,4 +1,4 @@
-# <img src="http://cdn.tjw.io/images/sails-logo.png" height='43px' />-webpack
+# sails-webpack
 
 [![NPM version][npm-image]][npm-url]
 [![Build status][travis-image]][travis-url]
@@ -94,18 +94,14 @@ $ sails lift
 MIT
 
 ## Maintained By
-[<img src='http://i.imgur.com/zM0ynQk.jpg' height='36px'>](http://balderdash.io)
+[<img src='http://i.imgur.com/Y03Jgmf.png' height='64px'>](http://langa.io)
 - [Joey Di Nardo](https://github.com/yejodido)
 - [Weyland Joyner](https://github.com/weyj4)
 - [Travis Webb](https://github.com/tjwebb)
 
-<img src='http://i.imgur.com/NsAdNdJ.png'>
-
-[sails-logo]: http://cdn.tjw.io/images/sails-logo.png
-[sails-url]: https://sailsjs.org
 [npm-image]: https://img.shields.io/npm/v/sails-webpack.svg?style=flat-square
 [npm-url]: https://npmjs.org/package/sails-webpack
-[travis-image]: https://img.shields.io/travis/balderdash-projects/sails-webpack.svg?style=flat-square
-[travis-url]: https://travis-ci.org/balderdash-projects/sails-webpack
-[daviddm-image]: http://img.shields.io/david/balderdash-projects/sails-webpack.svg?style=flat-square
-[daviddm-url]: https://david-dm.org/balderdash-projects/sails-webpack
+[travis-image]: https://img.shields.io/travis/langateam/sails-webpack.svg?style=flat-square
+[travis-url]: https://travis-ci.org/langateam/sails-webpack
+[daviddm-image]: http://img.shields.io/david/langateam/sails-webpack.svg?style=flat-square
+[daviddm-url]: https://david-dm.org/langateam/sails-webpack
