@@ -1,60 +1,59 @@
 {
-  "name": "sails-webpack",
-  "version": "1.0.14",
-  "description": "Webpack asset pipeline hook for Sails",
-  "keywords": [
-    "sails",
-    "sailsjs",
-    "hook",
-    "sails-hook",
-    "webpack",
-    "build",
-    "asset pipeline"
-  ],
-  "dependencies": {
-    "lodash": "^4.17.4",
-    "marlinspike": "^1.0.0",
-    "webpack": "^3.7.1",
-    "webpack-dev-server": "^2.9.1"
-  },
-  "scripts": {
-    "prepublish": "gulp",
-    "test": "mocha"
-  },
-  "main": "dist/api/hooks/webpack/index.js",
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/balderdash-projects/sails-webpack.git"
-  },
-  "author": {
-    "name": "Weyland Joyner",
-    "email": "weyland@balderdash.io"
-  },
-  "contributors": [
-    {
-      "name": "Joey Di Nardo",
-      "email": "joey@balderdash.io"
+    "name": "sails-webpack-hook",
+    "version": "1.0.14",
+    "description": "Webpack asset pipeline hook for Sails",
+    "keywords": [
+        "sails",
+        "sailsjs",
+        "hook",
+        "sails-hook",
+        "webpack",
+        "build",
+        "asset pipeline"
+    ],
+    "dependencies": {
+        "lodash": "^4.17.4",
+        "marlinspike": "^1.0.0",
+        "webpack": "^3.7.1",
+        "webpack-dev-server": "^2.9.1"
     },
-    {
-      "name": "Travis Webb",
-      "email": "tjwebb@balderdash.io"
+    "scripts": {
+        "prepublish": "gulp",
+        "test": "mocha"
     },
-    {
-      "name": "Sauban Lawal",
-      "email": "saubanlawal@gmail.com"
-    }
-  ],
-  "devDependencies": {
-    "babel-core": "^6.1.4",
-    "babel-preset-es2015": "^6.1.4",
-    "gulp": "^3.9.0",
-    "gulp-babel": "^6.1.0",
-    "mocha": "^2.3.3",
-    "sails": "^0.11.2"
-  },
-  "sails": {
-    "isHook": true,
-    "hookName": "webpack"
-  },
-  "license": "MIT"
+    "main": "dist/api/hooks/webpack/index.js",
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/balderdash-projects/sails-webpack.git"
+    },
+    "author": {
+        "name": "Weyland Joyner",
+        "email": "weyland@balderdash.io"
+    },
+    "contributors": [{
+            "name": "Joey Di Nardo",
+            "email": "joey@balderdash.io"
+        },
+        {
+            "name": "Travis Webb",
+            "email": "tjwebb@balderdash.io"
+        },
+        {
+            "name": "Sauban Lawal",
+            "email": "saubanlawal@gmail.com"
+        }
+    ],
+    "devDependencies": {
+        "babel-core": "^6.1.4",
+        "babel-preset-es2015": "^6.1.4",
+        "gulp": "^3.9.0",
+        "gulp-babel": "^6.1.0",
+        "mocha": "^2.3.3",
+        "sails": "^0.11.2"
+    },
+    "sails": {
+        "isHook": true,
+        "hookName": "webpack"
+    },
+    "license": "MIT"
 }
